@@ -1,8 +1,12 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './Home';
 import About from './About';
+import Vans from './Vans';
+import VanDetail from './VanDetail'
+import Layout from './components/Layout';
 
 import './App.css'
+import './server'
 
 
 
@@ -12,15 +16,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <header>
-        <Link className="site-logo" to="/">#VanLife</Link>
-        <nav>
-          <Link to="/about">About</Link>
-        </nav>
-      </header>
+      
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
