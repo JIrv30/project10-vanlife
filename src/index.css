@@ -295,3 +295,43 @@ i[class*='van-type-'] {
   text-decoration: underline;
   font-weight: 600;
 }
+
+/* Host vans page */
+
+.hostvans-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 15px;
+  padding-block: 18px;
+  padding-left: 24px;
+}
+
+.hostvans-card > img {
+  height: 70px;
+  border-radius: 5px;
+  margin-right: 17px;
+}
+
+.hostvans-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-block: 10px;
+}
+
+.hostvans-card p {
+  margin-block: 10px;
+}
+
+.host-vans-title {
+  padding-inline: 26px;
+}
+
+.host-vans-list {
+  padding-inline: 26px;
+}
+
+.hostvans-link-wrapper {
+  color: unset;
+  text-decoration: unset;
+}
