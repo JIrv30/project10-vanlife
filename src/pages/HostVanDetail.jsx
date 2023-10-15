@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, Link, Outlet, NavLink } from "react-router-dom"
+import { useParams, Link, Outlet, NavLink, } from "react-router-dom"
 
 export default function HostVanDetail () {
 
@@ -61,7 +61,7 @@ export default function HostVanDetail () {
 
       </nav>
 
-      <Outlet />
+      <Outlet context={{hostVans}} />
       </div>
 
     </section>
