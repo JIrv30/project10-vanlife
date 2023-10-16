@@ -14,12 +14,12 @@ export default function HostVans () {
     return (
       <Link to={`/host/vans/${van.id}`}
       key={van.id}
-      className="hostvans-link-wrapper"
+      className="host-van-link-wrapper"
       >
       
-      <div className="hostvans-card">
+      <div className="host-van-single">
         <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
-          <div className="hostvan-info">
+          <div className="host-van-info">
             <h3>{van.name}</h3>
             <p>${van.price}/day</p>
         </div>
