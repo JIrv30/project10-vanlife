@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Home';
 import About from './About';
 import Vans from './Vans';
@@ -14,6 +14,7 @@ import HostVanPhotos from './pages/HostVanPhotos';
 import HostVanPricing from './pages/HostVanPricing'
 import HostVanInfo from './pages/HostVanInfo'
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 import './App.css'
 import './server'
@@ -33,6 +34,10 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
+          <Route
+            path='login'
+            element={<Login />}
+          />
 
           <Route path='host' element={<HostLayout />} >
             <Route index element={<Dashboard />} />

@@ -1,4 +1,5 @@
 import {NavLink ,Link } from "react-router-dom";
+import userCircle from '../assets/user-circle.svg'
 
 export default function Header () {
 
@@ -27,6 +28,16 @@ export default function Header () {
         to="/vans"
         style={({isActive})=>isActive ? activeStyles : null}
         >Vans</NavLink>
+
+        <Link
+        to='login'
+        className="login-link"
+        >
+          <img
+          src={userCircle}
+          className="login-icon"
+          />
+        </Link>
       </nav>
     </header>
   )
