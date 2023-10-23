@@ -1,27 +1,43 @@
 import { useEffect, useState } from "react"
 import { useParams, Link, Outlet, NavLink, } from "react-router-dom"
+import {getHostVans} from '../api'
 
 export default function HostVanDetail () {
 
   const [hostVans, setHostVans] = useState(null)
-
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const {id} = useParams()
 
-  useEffect(()=>{
-    fetch(`/api/host/vans/${id}`)
-    .then(res => res.json())
-    .then(data=>setHostVans(data.vans))
-  },[])
+  
+
+  useEffect (()=>{
+    async function loadVans () {
+      try {
+        const data = await getHostVans(id)
+        setHostVans(data)
+      } catch (err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadVans ()
+  },[id])
+
+  if(loading) {
+    return <h1>Loading</h1>
+  }
+
+  if(error) {
+    return <h1>There was an error: {error.message}</h1>
+  }
 
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616"
 }
-
-  if(!hostVans) {
-    return <h1>Loading...</h1>
-  }
 
   return (
     <section>
@@ -30,6 +46,8 @@ export default function HostVanDetail () {
         relative="path"
         className="back-button"
       >&larr; <span>Back to all vans</span></Link>
+      {hostVans && 
+      
       <div className="host-van-detail-layout-container">
         <div className="host-van-detail">
           <img src={hostVans.imageUrl} />
@@ -63,6 +81,7 @@ export default function HostVanDetail () {
 
       <Outlet context={{hostVans}} />
       </div>
+      }
 
     </section>
   )
