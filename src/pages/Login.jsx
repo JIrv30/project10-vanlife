@@ -44,6 +44,11 @@ export default function Login () {
         location.state?.message && 
         <h3 className="login-error">{location.state.message}</h3>
       }
+
+      <div>
+        <h3>Demo username: bob@fakeemail.com</h3>
+        <h3>Demo Password: p123</h3>
+      </div>
       
       <h1>Sign in to your account</h1>
 

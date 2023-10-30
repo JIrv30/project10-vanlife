@@ -1,5 +1,6 @@
 import {NavLink ,Link } from "react-router-dom";
 import userCircle from '../assets/user-circle.svg'
+import {AiOutlineLogout} from 'react-icons/ai'
 
 export default function Header () {
 
@@ -42,7 +43,9 @@ export default function Header () {
           className="login-icon"
           />
         </Link>
-        <button onClick={fakeLogout}>X</button>
+        <button onClick={fakeLogout} style={{background: 'none', border: 'none'}}>
+          <AiOutlineLogout size={17} />
+        </button>
       </nav>
     </header>
   )
